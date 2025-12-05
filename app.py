@@ -137,7 +137,7 @@ if st.button(f"Buscar {MAX_RESULTS} Videos"):
                     except:
                         st.write("⚠️ No se pudo cargar el reproductor.")
 
-                    st.write(f"[Abrir en YouTube]({video['url']})")
+                    #st.write(f"[Abrir en YouTube]({video['url']})")
 
                     st.markdown("</div>", unsafe_allow_html=True)
             else:
