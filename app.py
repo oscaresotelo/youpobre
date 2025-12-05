@@ -16,7 +16,7 @@ html, body, [data-testid="stAppViewContainer"] {
     font-family: "Inter", sans-serif !important;
 }
 
-/* BARRA SUPERIOR */
+/* TITULO SUPERIOR */
 h1 {
     font-weight: 900 !important;
     font-size: 42px !important;
@@ -34,7 +34,7 @@ h1 {
     font-size: 16px !important;
 }
 
-/* BOTÓN PLAY */
+/* BOTON */
 .stButton > button {
     background-color: #1DB954 !important;
     color: black !important;
@@ -84,20 +84,22 @@ h1 {
     transition: 0.25s ease;
 }
 
-/* TÍTULO */
+/* TITULO VERDE SPOTIFY */
 .video-title {
     font-size: 17px;
     font-weight: 700;
     margin-bottom: 6px;
+    color: #1DB954 !important;
 }
 
-/* INFORMACIÓN */
+/* INFORMACION VERDE SPOTIFY */
 .video-info {
     font-size: 14px;
-    opacity: 0.75;
+    opacity: 0.9;
+    color: #1DB954 !important;
 }
 
-/* BOTÓN PLAY SOBRE MINIATURA */
+/* BOTON PLAY */
 .play-btn {
     position: absolute;
     right: 22px;
@@ -120,6 +122,7 @@ h1 {
     transform: translateY(-4px);
 }
 
+/* ANIMACION */
 .card-anim {
     animation: fadeUp 0.6s ease;
 }
@@ -130,7 +133,6 @@ h1 {
 
 </style>
 """
-
 st.markdown(ui_css, unsafe_allow_html=True)
 
 # =========================================================
@@ -139,7 +141,6 @@ st.markdown(ui_css, unsafe_allow_html=True)
 def buscar_videos(q, max_results):
     try:
         data = YoutubeSearch(q, max_results=max_results).to_dict()
-
         videos = []
         for item in data:
             videos.append({
@@ -164,7 +165,6 @@ st.title("🎵 Pobrefy — Tu Mini Spotify")
 st.markdown("### Buscá cualquier canción 🎶")
 
 query = st.text_input("🔍 Buscar en YouTube...")
-
 MAX_RESULTS = 8
 
 if st.button("Buscar"):
@@ -203,5 +203,4 @@ if st.button("Buscar"):
 
             html_items += "</div>"
 
-            # RENDER HTML REAL, SIN QUE STREAMLIT ESCAPE TEXTO
             components.html(html_items, height=2000, scrolling=True)
